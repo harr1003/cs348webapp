@@ -1,0 +1,146 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.welcome {
+  color: white;
+  font-family: monospace;
+  font-size: 30px;
+  margin: 10px;
+}
+
+.nav {
+  float: right;
+}
+
+.newNote {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-family: monospace;
+  min-height: 270px;
+  width: 270px;
+  background-color: rgb(96, 124, 82);
+  color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.noteOutline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  width: 300px;
+  background-color: rgb(77, 110, 59);
+  color: white;
+  border-radius: 10px;
+}
+
+.newNote::after {
+  content: "+";
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.expanded {
+  min-width: 400px;
+  height: 400px;
+  font-size: 20px;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.expanded::after {
+  content: "-";
+}
+
+.noteInput {
+  width: 90%;
+  height: 70%;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.noteForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.noteForm input,
+.noteForm textarea,
+.noteForm select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.noteForm button {
+  background-color: #d4edda;
+  position: relative;
+  padding: 20px;
+  border-radius: 15px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.noteForm button:hover {
+  background-color: #0056b3;
+}
+
+/* Button to open modal */
+.open-popup-btn {
+  background-color: #d4edda;
+  position: relative;
+  padding: 20px;
+  border-radius: 15px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(243, 194, 194); /* Trashcan icon color */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: darkred; /* Hover effect for the delete button */
+}
+
+.delete-btn:focus {
+  outline: none; /* Remove outline on focus */
+}
+
+.delete-btn svg {
+  font-size: 18px; /* Resize the trashcan icon */
+}

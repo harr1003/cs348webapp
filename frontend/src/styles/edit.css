@@ -1,0 +1,17 @@
+.edit-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgb(132, 173, 132); /* Edit icon color */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: green; /* Hover effect for the edit button */
+}

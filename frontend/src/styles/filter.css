@@ -1,0 +1,20 @@
+.filter-panel {
+  margin: 10px;
+  padding: 1rem;
+  background: rgb(73, 124, 94);
+  border-radius: 8px;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+.filter-btn {
+  margin: 10px;
+  background: rgb(62, 107, 81);
+  color: rgb(255, 255, 255);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
