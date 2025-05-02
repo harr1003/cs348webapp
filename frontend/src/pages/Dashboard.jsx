@@ -12,20 +12,14 @@ const Dashboard = () => {
 
         <button
           className="buttons"
-          onClick={() => navigate("/Storytime/CharacterTutorial")}
+          onClick={() => navigate("/CharacterTutorial")}
         >
           How to make a Character
         </button>
-        <button
-          className="buttons"
-          onClick={() => navigate("/Storytime/NoteTutorial")}
-        >
+        <button className="buttons" onClick={() => navigate("/NoteTutorial")}>
           Using Notes
         </button>
-        <button
-          className="buttons"
-          onClick={() => navigate("/Storytime/EventTutorial")}
-        >
+        <button className="buttons" onClick={() => navigate("/EventTutorial")}>
           How to create an Event
         </button>
       </div>

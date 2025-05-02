@@ -14,13 +14,13 @@ const Login = () => {
     const response = await login(identifier, password);
     console.log(response);
     if (response && !response.error) {
-      navigate("/Storytime/Dashboard");
+      navigate("/Dashboard");
     }
   };
 
   const handleSignup = (e) => {
     e.preventDefault();
-    navigate("/Storytime/Signup");
+    navigate("/Signup");
   };
 
   return (

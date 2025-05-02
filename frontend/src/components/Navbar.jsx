@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/Storytime/Login");
+    navigate("/Login");
   };
 
   // Helper function to check if a link is active
@@ -27,42 +27,27 @@ const Navbar = () => {
       <div className="navbar-right">
         <ul>
           <li>
-            <Link
-              to="/Storytime/Dashboard"
-              className={isActive("/Storytime/Dashboard")}
-            >
+            <Link to="/Dashboard" className={isActive("/Dashboard")}>
               Dashboard
             </Link>
           </li>
           <li>
-            <Link
-              to="/Storytime/Characters"
-              className={isActive("/Storytime/Characters")}
-            >
+            <Link to="/Characters" className={isActive("/Characters")}>
               Characters
             </Link>
           </li>
           <li>
-            <Link
-              to="/Storytime/Notes"
-              className={isActive("/Storytime/Notes")}
-            >
+            <Link to="/Notes" className={isActive("/Notes")}>
               Notes
             </Link>
           </li>
           <li>
-            <Link
-              to="/Storytime/Events"
-              className={isActive("/Storytime/Events")}
-            >
+            <Link to="/Events" className={isActive("/Events")}>
               Events
             </Link>
           </li>
           <li>
-            <Link
-              to="/Storytime/Profile"
-              className={isActive("/Storytime/Profile")}
-            >
+            <Link to="/Profile" className={isActive("/Profile")}>
               Profile
             </Link>
           </li>

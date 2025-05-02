@@ -13,12 +13,12 @@ const SignUp = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     await signup(username, email, password);
-    navigate("/Storytime/Dashboard");
+    navigate("/Dashboard");
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate("/Storytime/Login");
+    navigate("/Login");
   };
 
   return (

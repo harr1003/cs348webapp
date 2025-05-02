@@ -20,31 +20,31 @@ function App() {
   const location = useLocation();
 
   const showNavbar = [
-    "/Storytime/Dashboard",
-    "/Storytime/Characters",
-    "/Storytime/Notes",
-    "/Storytime/Events",
-    "/Storytime/CharacterTutorial",
-    "/Storytime/NoteTutorial",
-    "/Storytime/EventTutorial",
-    "/Storytime/Profile",
+    "/Dashboard",
+    "/Characters",
+    "/Notes",
+    "/Events",
+    "/CharacterTutorial",
+    "/NoteTutorial",
+    "/EventTutorial",
+    "/Profile",
   ].includes(location.pathname);
 
   return (
     <>
       {showNavbar && <Navbar />}
       <Routes>
-        <Route path="/Storytime" element={<Home />} />
-        <Route path="/Storytime/Login" element={<Login />} />
-        <Route path="/Storytime/SignUp" element={<SignUp />} />
-        <Route path="/Storytime/Dashboard" element={<Dashboard />} />
-        <Route path="/Storytime/Characters" element={<Characters />} />
-        <Route path="/Storytime/Notes" element={<Notes />} />
-        <Route path="/Storytime/Events" element={<Events />} />
-        <Route path="/Storytime/CharacterTutorial" element={<CharTutorial />} />
-        <Route path="/Storytime/EventTutorial" element={<EventTutorial />} />
-        <Route path="/Storytime/NoteTutorial" element={<NoteTutorial />} />
-        <Route path="/Storytime/Profile" element={<Profile />} />
+        <Route path="" element={<Home />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Characters" element={<Characters />} />
+        <Route path="/Notes" element={<Notes />} />
+        <Route path="/Events" element={<Events />} />
+        <Route path="/CharacterTutorial" element={<CharTutorial />} />
+        <Route path="/EventTutorial" element={<EventTutorial />} />
+        <Route path="/NoteTutorial" element={<NoteTutorial />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </>
