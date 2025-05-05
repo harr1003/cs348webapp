@@ -19,7 +19,10 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://storytimewithclemons.netlify.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -32,12 +35,12 @@ app.use("/api/characters", characterRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/notes", noteRoutes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
-  });
-}
+//if (process.env.NODE_ENV === "production") {
+//app.use(express.static(path.join(__dirname, "../frontend/dist")));
+//app.get("*", (req, res) => {
+//res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
+//});
+//}
 
 app.listen(PORT, () => {
   connectDB();

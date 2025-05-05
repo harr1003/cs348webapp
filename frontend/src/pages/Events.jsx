@@ -25,11 +25,14 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("/api/events", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/events`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const json = await response.json();
 
       if (response.ok && json.success) {
@@ -50,12 +53,15 @@ const Events = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`/api/events/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/events/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         eventDispatch({ type: "DELETE_EVENT", payload: id });
@@ -82,14 +88,17 @@ const Events = () => {
       return;
     }
     try {
-      const response = await fetch(`/api/events/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify(editedEvent),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/events/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(editedEvent),
+        }
+      );
       const curr_event = await response.json();
       console.log("API response", curr_event);
 
@@ -116,14 +125,17 @@ const Events = () => {
       return;
     }
     try {
-      const response = await fetch("/api/events/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify(newEvent),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/events/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(newEvent),
+        }
+      );
       const event = await response.json();
       console.log("API response", event);
 

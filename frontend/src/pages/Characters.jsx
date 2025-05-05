@@ -45,11 +45,14 @@ const Characters = () => {
 
   const fetchCharacters = async () => {
     try {
-      const response = await fetch("/api/characters", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/characters`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       const json = await response.json();
 
@@ -82,12 +85,15 @@ const Characters = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`/api/characters/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/characters/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         charDispatch({ type: "DELETE_CHARACTER", payload: id });
@@ -114,14 +120,17 @@ const Characters = () => {
       return;
     }
     try {
-      const response = await fetch(`/api/characters/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify(editedCharacter),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/characters/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(editedCharacter),
+        }
+      );
       const curr_character = await response.json();
       console.log("API response", curr_character);
 
@@ -148,14 +157,17 @@ const Characters = () => {
       return;
     }
     try {
-      const response = await fetch("/api/characters/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify(newCharacter),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/characters/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(newCharacter),
+        }
+      );
       const character = await response.json();
       console.log("API response", character);
 
@@ -197,11 +209,14 @@ const Characters = () => {
 
       console.log(`/characters?${queryParams}`);
 
-      const response = await fetch(`/api/characters?${queryParams}`, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/characters?${queryParams}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       const json = await response.json();
 

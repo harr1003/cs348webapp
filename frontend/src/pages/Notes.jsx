@@ -32,9 +32,12 @@ const Notes = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await fetch("/api/notes", {
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/notes`,
+        {
+          headers: { Authorization: `Bearer ${user.token}` },
+        }
+      );
       const json = await response.json();
       if (response.ok && json.success) {
         noteDispatch({ type: "SET_NOTES", payload: json.data });
@@ -48,9 +51,12 @@ const Notes = () => {
 
   const fetchCharacters = async () => {
     try {
-      const response = await fetch("/api/characters", {
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/characters`,
+        {
+          headers: { Authorization: `Bearer ${user.token}` },
+        }
+      );
       const json = await response.json();
       if (response.ok && json.success) {
         charDispatch({ type: "SET_CHARACTERS", payload: json.data });
@@ -64,9 +70,12 @@ const Notes = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("/api/events", {
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/events`,
+        {
+          headers: { Authorization: `Bearer ${user.token}` },
+        }
+      );
       const json = await response.json();
       if (response.ok && json.success) {
         eventDispatch({ type: "SET_EVENTS", payload: json.data });
@@ -101,19 +110,22 @@ const Notes = () => {
     }
 
     try {
-      const response = await fetch("/api/notes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify({
-          title,
-          description,
-          event_id: selectedEvent,
-          character_id: selectedCharacter,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/notes`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify({
+            title,
+            description,
+            event_id: selectedEvent,
+            character_id: selectedCharacter,
+          }),
+        }
+      );
 
       const note = await response.json();
       if (response.ok) {
@@ -138,9 +150,12 @@ const Notes = () => {
     if (filterEvent) params.append("event_id", filterEvent);
 
     try {
-      const response = await fetch(`/api/notes?${params.toString()}`, {
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/notes?${params.toString()}`,
+        {
+          headers: { Authorization: `Bearer ${user.token}` },
+        }
+      );
       const json = await response.json();
       if (response.ok && json.success) {
         noteDispatch({ type: "SET_NOTES", payload: json.data });
@@ -167,14 +182,17 @@ const Notes = () => {
       return;
     }
     try {
-      const response = await fetch(`/api/notes/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify(editedNote),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/notes/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(editedNote),
+        }
+      );
       const curr_note = await response.json();
       console.log("API response", curr_note);
 
@@ -195,12 +213,15 @@ const Notes = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`/api/notes/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/notes/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         noteDispatch({ type: "DELETE_NOTE", payload: id });
