@@ -32,7 +32,7 @@ const Notes = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/notes", {
+      const response = await fetch("/api/notes", {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       const json = await response.json();
@@ -48,7 +48,7 @@ const Notes = () => {
 
   const fetchCharacters = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/characters", {
+      const response = await fetch("/api/characters", {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       const json = await response.json();
@@ -64,7 +64,7 @@ const Notes = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/events", {
+      const response = await fetch("/api/events", {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       const json = await response.json();
@@ -101,7 +101,7 @@ const Notes = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/notes", {
+      const response = await fetch("/api/notes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -138,12 +138,9 @@ const Notes = () => {
     if (filterEvent) params.append("event_id", filterEvent);
 
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/notes?${params.toString()}`,
-        {
-          headers: { Authorization: `Bearer ${user.token}` },
-        }
-      );
+      const response = await fetch(`/api/notes?${params.toString()}`, {
+        headers: { Authorization: `Bearer ${user.token}` },
+      });
       const json = await response.json();
       if (response.ok && json.success) {
         noteDispatch({ type: "SET_NOTES", payload: json.data });
@@ -170,7 +167,7 @@ const Notes = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/api/notes/${id}`, {
+      const response = await fetch(`/api/notes/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -198,7 +195,7 @@ const Notes = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/notes/${id}`, {
+      const response = await fetch(`/api/notes/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${user.token}`,

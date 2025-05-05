@@ -25,7 +25,7 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/events", {
+      const response = await fetch("/api/events", {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -50,7 +50,7 @@ const Events = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const response = await fetch(`/api/events/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -82,7 +82,7 @@ const Events = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const response = await fetch(`/api/events/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -116,7 +116,7 @@ const Events = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/api/events/", {
+      const response = await fetch("/api/events/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
